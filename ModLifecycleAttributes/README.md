@@ -3,6 +3,15 @@
 A C# source generator for Celeste mods that automatically generates consolidated lifecycle method invocations
 based on attributes.
 
+<!-- TOC -->
+* [ModLifecycleAttributes](#modlifecycleattributes)
+  * [Problem](#problem)
+  * [Solution](#solution)
+  * [Example](#example)
+  * [Referencing](#referencing)
+  * [Building](#building)
+<!-- TOC -->
+
 ## Problem
 
 As mods grow larger, more and more work is being done in the module's `Load()`, `Initialize()`, `LoadContent()`, and
@@ -100,3 +109,24 @@ internal static partial class LifecycleMethods
     }
 }
 ```
+
+## Referencing
+
+> [!NOTE]
+> I plan to publish a NuGet package in the future.
+> 
+> In the meantime, you'll have to build `ModLifecycleAttributes` from source.
+
+- Build the source generator (see [Building](#building))
+- Copy the output assembly to a convenient location
+- Reference the assembly in your mod's `.csproj` like so:
+  ```xml
+  <ItemGroup>
+    <Analyzer Include="path/to/ModLifecycleAttributes.dll" />
+  </ItemGroup>
+  ```
+
+## Building
+
+Clone the solution and build the `ModLifecycleAttributes` project. Prefer Release mode as it's
+more optimized.
