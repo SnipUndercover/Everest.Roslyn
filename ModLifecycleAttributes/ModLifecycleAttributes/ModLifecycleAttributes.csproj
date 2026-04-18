@@ -72,12 +72,12 @@
 
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
         <!-- Package the generator in the analyzer directory of the nuget package if building in Release -->
-        <None Include="$(OutputPath)/$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+        <Content Include="$(OutputPath)/$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
         <!-- Add a README and license -->
-        <None Include="../README.md" Pack="true" PackagePath="/"/>
-        <None Include="../LICENSE.txt" Pack="true" PackagePath="/"/>
+        <Content Include="../README.md" Pack="true" PackagePath="/"/>
+        <Content Include="../LICENSE.txt" Pack="true" PackagePath="/"/>
         <!-- Add the icon -->
-        <None Include="../../icon.png" Pack="true" PackagePath="/"/>
+        <Content Include="../../icon.png" Pack="true" PackagePath="/"/>
     </ItemGroup>
 
 </Project>
