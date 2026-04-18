@@ -113,19 +113,16 @@ internal static partial class LifecycleMethods
 
 ## Referencing
 
-> [!NOTE]
-> I plan to publish a NuGet package in the future.
-> 
-> In the meantime, you'll have to build `ModLifecycleAttributes` from source.
+Add the `CelesteMod.Roslyn.ModLifecycleAttributes` NuGet package to your csproj like so:
 
-- Build the source generator (see [Building](#building))
-- Copy the output assembly to a convenient location
-- Reference the assembly in your mod's `.csproj` like so:
-  ```xml
-  <ItemGroup>
-    <Analyzer Include="path/to/ModLifecycleAttributes.dll" />
-  </ItemGroup>
-  ```
+```xml
+<ItemGroup>
+    <PackageReference Include="CelesteMod.Roslyn.ModLifecycleAttributes" Version="*" />
+</ItemGroup>
+```
+
+After restoring the solution, the attributes should be available in your project.  
+Annotating at least one method with them will make the corresponding `LifecycleMethods` method available.
 
 ## Building
 
